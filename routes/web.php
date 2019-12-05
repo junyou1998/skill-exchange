@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes();//開啟註冊
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/{user}', 'ProfileController@index');
+Route::get('/profile/{user}', 'ProfileController@edit');
