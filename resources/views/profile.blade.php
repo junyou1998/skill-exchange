@@ -6,12 +6,13 @@
             height: 100px;
         }
     </style>
-@endsection
+@endsecti       on
 @section('content')
 
 
 <div class="container">
     <div class="row">
+        
         <div class="avatar col-3">
             <img class="avatar-img" src="{{$user->profile->avatar_url ?? 'https://cdn3.iconfinder.com/data/icons/flat-ui/500/21-512.png'}}" alt="">
         </div>
