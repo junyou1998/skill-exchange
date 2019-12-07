@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();//開啟註冊
+// Auth::routes(); //開啟註冊
+Auth::routes(['verify' => true]);
+
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
