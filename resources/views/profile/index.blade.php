@@ -6,7 +6,6 @@
             height: 100px;
         }
     </style>
-@endsecti       on
 @section('content')
 
 
@@ -22,7 +21,7 @@
         <p>{{$user->profile->intro ?? '這人很懶'}}</p>
         <a href="{{$user->profile->website_link ?? '這人很懶'}}">網頁</a>
         </div>
-    <a href="/profile/{{$user->id}}" class="btn btn-primary">編輯</a>
+    <a href="/profile/{{$user->id}}/edit" class="btn btn-primary">編輯</a>
     </div>
 </div>
 @endsection

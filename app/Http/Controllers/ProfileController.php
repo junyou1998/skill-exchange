@@ -10,10 +10,11 @@ class ProfileController extends Controller
 {
     public function index($user_id){
         $user = User::findOrFail($user_id);
-        return view('profile',compact('user'));
+        return view('profile.index',compact('user'));
     }
     public function edit($user_id){
         $user = User::findOrFail($user_id);
-        return view('edit',compact('user'));
+        return view('profile.edit',compact('user'));
     }
+    
 }

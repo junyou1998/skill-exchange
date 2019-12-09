@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 // Auth::routes(); //開啟註冊
@@ -23,5 +23,6 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/{user}', 'ProfileController@index');
-Route::get('/profile/{user}', 'ProfileController@edit');
+
+Route::get('/profile/{user}', 'ProfileController@index');
+Route::get('/profile/{user}/edit', 'ProfileController@edit');
