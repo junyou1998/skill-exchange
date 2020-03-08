@@ -1,0 +1,158 @@
+a {
+  text-decoration: none;
+}
+
+.tag-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tag-area .tags {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+}
+
+.tag-area .tags .tag {
+  text-decoration: none;
+  background-color: #f8f8f8;
+  color: #000;
+  display: inline-block;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80px;
+  height: 100px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 71, 202, 0.2);
+  transition: 0.3s;
+}
+
+.tag-area .tags .tag:hover {
+  color: blue;
+  background-color: #eee;
+}
+
+.tag-area .tags .tag i {
+  font-size: 25px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards .card {
+  border: none;
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin-bottom: 30px;
+  min-height: 280px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cards .card + .card {
+  margin: 20px 10px;
+  margin-bottom: 20px;
+}
+
+.cards .card .head {
+  display: flex;
+  align-items: center;
+}
+
+.cards .card .head .user {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.cards .card .head .user .avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #999;
+}
+
+.cards .card .head .user .username {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cards .card .head .user .username .job {
+  font-size: 16px;
+  font-weight: normal;
+  color: #999;
+}
+
+.cards .card .head .time {
+  color: #999;
+  padding: 0 10px;
+}
+
+.cards .card .head .love .fa-heart {
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cards .card .head .love .fa-heart.loved {
+  color: red;
+}
+
+.cards .card .content {
+  padding: 15px 55px;
+}
+
+.cards .card .content .skill,
+.cards .card .content .learn {
+  font-weight: 900;
+}
+
+.cards .card .content .highlight {
+  color: #ff7b00;
+}
+
+.cards .card .foot {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cards .card .foot .sort {
+  display: flex;
+}
+
+.cards .card .foot .category {
+  display: inline-block;
+  color: #fff;
+  background-color: orange;
+  border-radius: 50px;
+  padding: 0 15px;
+}
+
+.cards .card .foot .category a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.cards .card .foot .tag_label {
+  margin-left: 10px;
+  color: #555;
+}
+
+.cards .card .foot .contact {
+  color: #333;
+  cursor: pointer;
+}
+
+.cards .card .foot .contact:hover {
+  color: blue;
+}
+
