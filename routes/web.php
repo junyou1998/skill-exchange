@@ -36,6 +36,7 @@ Route::delete('/posts/{post}', 'PostController@destroy');
 Route::get('/', 'FrontController@index');
 Route::get('/posts/{post}', 'PostController@show');
 Route::get('/posts/category/{category}','FrontController@indexWithCategory');
+Route::get('/posts/tag/{tag}','FrontController@indexWithTag');
 
 
 // 後臺管理者

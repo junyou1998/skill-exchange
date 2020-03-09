@@ -1,16 +1,16 @@
 a {
     text-decoration: none;
 }
-.tag-area {
+.sorts {
     display: flex;
     justify-content: space-between;
-
-    .tags {
+    flex-wrap: wrap;
+    .categories_sort {
         display: flex;
         justify-content: space-between;
         list-style-type: none;
         padding: 0;
-        .tag {
+        .category_sort {
             text-decoration: none;
             background-color: #f8f8f8;
             color: #000;
@@ -32,6 +32,14 @@ a {
             i{
                 font-size: 25px;
             }
+        }
+    }
+    .tags_sort{
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        .tag_sort{
+            padding: 0 5px;
         }
     }
 
@@ -112,6 +120,12 @@ a {
             .highlight{
                 color: rgb(255, 123, 0);
             }
+            .continue_reading{
+                width: 90%;
+                text-align: center;
+                // border-top: solid 2px #e7e7e7;
+                color: #ccc;
+            }
         }
         .foot{
             display: flex;
@@ -134,7 +148,9 @@ a {
             }
             .tag_label{
                 margin-left: 10px;
-                color: #555;
+                .tag_link{
+                    color: #888;
+                }
             }
             
             .contact{

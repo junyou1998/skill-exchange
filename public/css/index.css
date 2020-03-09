@@ -2,19 +2,20 @@ a {
   text-decoration: none;
 }
 
-.tag-area {
+.sorts {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.tag-area .tags {
+.sorts .categories_sort {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
   padding: 0;
 }
 
-.tag-area .tags .tag {
+.sorts .categories_sort .category_sort {
   text-decoration: none;
   background-color: #f8f8f8;
   color: #000;
@@ -31,13 +32,23 @@ a {
   transition: 0.3s;
 }
 
-.tag-area .tags .tag:hover {
+.sorts .categories_sort .category_sort:hover {
   color: blue;
   background-color: #eee;
 }
 
-.tag-area .tags .tag i {
+.sorts .categories_sort .category_sort i {
   font-size: 25px;
+}
+
+.sorts .tags_sort {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.sorts .tags_sort .tag_sort {
+  padding: 0 5px;
 }
 
 .cards {
@@ -120,6 +131,12 @@ a {
   color: #ff7b00;
 }
 
+.cards .card .content .continue_reading {
+  width: 90%;
+  text-align: center;
+  color: #ccc;
+}
+
 .cards .card .foot {
   display: flex;
   justify-content: space-between;
@@ -144,7 +161,10 @@ a {
 
 .cards .card .foot .tag_label {
   margin-left: 10px;
-  color: #555;
+}
+
+.cards .card .foot .tag_label .tag_link {
+  color: #888;
 }
 
 .cards .card .foot .contact {

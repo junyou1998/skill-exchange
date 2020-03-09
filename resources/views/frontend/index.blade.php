@@ -7,24 +7,37 @@
 
 @section('content')
 <div class="container">
-    <div class="tag-area">
-        <ul class="tags col-12">
+    <div class="sorts">
+        <ul class="categories_sort col-12">
             <li>
-                <a class="tag" href="/">
+                <a class="category_sort" href="/">
                     <i class="fas fa-globe-americas"></i>
                     <div class="text">全部</div>
                 </a>
             </li>
             @foreach ($categories as $key=>$category)
+            
             <li>
-                <a class="tag" href="/posts/category/{{$category->id}}">
+                <a class="category_sort" href="/posts/category/{{$category->id}}">
                     <i class="fas fa-drum"></i>
                     <div class="text">{{$category->name}}</div>
                 </a>
             </li>
+            
+            @endforeach
+        </ul>
+        <ul class="tags_sort col-12">
+            熱門標籤 :
+            @foreach ($tags as $key=>$tag)
+            @if($key<15)
+            <li>
+                <a class="tag_sort" href="/posts/tag/{{$tag->id}}">#{{$tag->name}}</a>
+            </li>
+            @endif
             @endforeach
         </ul>
     </div>
+
     <div class="cards row">
         @foreach ($posts as $post)
         <div class="col-6">
@@ -49,8 +62,6 @@
                     </div>
                 </div>
                 <div class="content">
-                    {{-- 地區:
-                    <p>{{$post->region}}</p> --}}
                     <div class="skill">
                         我擅長
                         <span class="highlight">
@@ -64,8 +75,10 @@
                         </span>
                     </div>
                     <p>{{ Str::limit($post->description,100)}}</p>
+                    <div class="row justify-content-center">
+                        <a class="continue_reading" href="/posts/{{$post->id}}"><i class="fas fa-chevron-down"></i></a>
+                    </div>
 
-                    <a href="/posts/{{$post->id}}">繼續閱讀</a>
                 </div>
                 <div class="foot">
                     <div class="sort">
@@ -79,7 +92,7 @@
                         </div>
                         <div class="tag_label">
                             @foreach ($post->tags as $tag)
-                            #{{$tag->name}}
+                            <a class="tag_link" href="/posts/tag/{{$tag->id}}">#{{$tag->name}}</a>
                             @endforeach
                         </div>
                     </div>
