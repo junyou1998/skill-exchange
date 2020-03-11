@@ -12,7 +12,7 @@
             <li>
                 <a class="category_sort" href="/">
                     <i class="fas fa-globe-americas"></i>
-                    <div class="text">全部</div>
+                    <div class="text">全部(測試)</div>
                 </a>
             </li>
             @foreach ($categories as $key=>$category)

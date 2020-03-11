@@ -6,3 +6,7 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+::selection{
+    background: rgb(255, 240, 153);
+}

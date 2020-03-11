@@ -10884,3 +10884,11 @@ a.text-dark:focus {
   }
 }
 
+::-moz-selection {
+  background: #fff099;
+}
+
+::selection {
+  background: #fff099;
+}
+
