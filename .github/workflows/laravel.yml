@@ -16,4 +16,4 @@ jobs:
         script: |
           cd /var/www/html/skill-exchange
           sudo git reset @^ --hard
-          sudo git pull git@github.com:junyou1998/skill-exchange.git
+          git pull git@github.com:junyou1998/skill-exchange.git
