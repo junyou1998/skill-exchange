@@ -15,6 +15,5 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /var/www/html/skill-exchange
-          sudo chmod -R 777 storage bootstrap/cache
           sudo git reset @^ --hard
           sudo git pull git@github.com:junyou1998/skill-exchange.git
