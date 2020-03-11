@@ -17,4 +17,4 @@ jobs:
           cd /var/www/html/skill-exchange
           sudo chmod -R 777 storage bootstrap/cache
           sudo git reset @^ --hard
-          sudo git https://github.com/junyou1998/skill-exchange.git
+          sudo git git@github.com:junyou1998/skill-exchange.git
