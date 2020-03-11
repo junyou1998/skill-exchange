@@ -15,5 +15,5 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /var/www/html/skill-exchange
-          sudo git reset @^ --hard
-          sudo git pull git@github.com:junyou1998/skill-exchange.git
+          git reset @^ --hard
+          git pull git@github.com:junyou1998/skill-exchange.git
