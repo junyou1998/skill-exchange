@@ -15,5 +15,4 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /var/www/html/skill-exchange
-          git reset @^ --hard
-          git pull git@github.com:junyou1998/skill-exchange.git   
+          ls -la 
