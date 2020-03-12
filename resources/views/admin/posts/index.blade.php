@@ -1,16 +1,11 @@
 @extends('layouts.admin')
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
-{{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"> --}}
-@endsection()
+@endsection
 
 @section('content')
 
 <div class="container">
-    {{-- <a href="/posts/create" class="btn btn-primary">create post</a> --}}
-
-
     <table id="table" class="display table table-striped table-bordered" >
         <thead>
             <tr>
@@ -19,7 +14,7 @@
                 <th>我擅長</th>
                 <th>想交換</th>
                 <th>分類</th>
-                <th>操作操作</th>
+                <th>操作</th>
             </tr>
         </thead>
         <tbody>
@@ -46,10 +41,6 @@
 
 @endsection
 @section('js')
-{{-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script> --}}
-
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    {{-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> --}}
 <script>
 
 var table = $('#table').DataTable({

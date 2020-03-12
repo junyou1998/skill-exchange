@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+        $tags = Tag::withCount('posts')->get();
         return view('admin.tags.index',compact('tags'));
     }
 
