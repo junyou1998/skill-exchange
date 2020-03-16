@@ -21,4 +21,5 @@ jobs:
           docker-compose exec -T workspace composer install
           docker-compose exec -T workspace npm install --only=prod
           docker-compose exec -T workspace npm run dev
+          docker-compose exec -T workspace php artisan config:cache
           
