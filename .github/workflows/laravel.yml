@@ -17,8 +17,8 @@ jobs:
           cd projects/skill-exchange
           git remote set-url origin git@github.com:junyou1998/skill-exchange.git
           git reset @^ --hard && git pull
-          cd laradock
-          docker-compose exec -T workspace composer install
-          docker-compose exec -T workspace npm install --only=prod
-          docker-compose exec -T workspace npm run dev
-          docker-compose exec -T workspace php artisan config:cache
+          cd ~/laradock
+          docker-compose exec workspace composer install
+          docker-compose exec workspace npm install --only=prod
+          docker-compose exec workspace npm run dev
+          docker-compose exec workspace php artisan config:cache
