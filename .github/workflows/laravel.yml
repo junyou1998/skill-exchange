@@ -15,6 +15,7 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd projects/skill-exchange
-          ls
+          git remote set-url origin git@github.com:junyou1998/skill-exchange.git
+          git reset @^ --hard && git pull
           cd laradock
           ls
