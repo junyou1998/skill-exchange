@@ -14,9 +14,4 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /var/www/html/skill-exchange
-          git reset @^ --hard 
-          git pull git@github.com:junyou1998/skill-exchange.git
-          composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-          npm install --only=prod
-          npm run dev
+          ls -la
