@@ -12,11 +12,7 @@
             <li>
                 <a class="category_sort" href="/">
                     <i class="fas fa-globe-americas"></i>
-<<<<<<< HEAD
                     <div class="text">全部(測試111)</div>
-=======
-                    <div class="text">全部</div>
->>>>>>> parent of 10858bb... ==
                 </a>
             </li>
             @foreach ($categories as $key=>$category)
