@@ -57,7 +57,13 @@
                     </div>
                     <div class="love">
                         <div class="love-icon">
-                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart" onclick="addLike({{$post->id}})"></i>
+                            {{$post->likes->count()}}
+
+                            @foreach ($post->likes as $like)
+                            {{$like->user->id}}
+                            @endforeach
+                            {{-- {{Auth::user()->name}} --}}
                         </div>
                     </div>
                 </div>
