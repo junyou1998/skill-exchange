@@ -37121,7 +37121,6 @@ document.addLike = function (id) {
 
   if (result) {
     var actionUrl = "/like/post/".concat(id);
-    console.log();
     console.log(actionUrl);
     $.post(actionUrl, {
       _method: 'post'

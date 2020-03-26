@@ -57,7 +57,6 @@ document.addLike = function(id){
     let result = confirm('do you want to like me?');
     if(result){
         let actionUrl = `/like/post/${id}`;
-        console.log()
         console.log(actionUrl)
         $.post(actionUrl,{_method: 'post'}).done(function(){
             location.href='/';
