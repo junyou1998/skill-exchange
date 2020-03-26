@@ -31,4 +31,8 @@ class Post extends Model
         
         return $tagsString;
     }
+
+    public function likes(){
+        return $this->hasMany('App\Like');
+    }
 }

@@ -49,3 +49,6 @@ Route::delete('/admin/posts/{post}', 'PostController@destroyByAdmin')->middlewar
 
 // 切版靜態頁
 Route::view('/single_page','single_page');
+
+
+Route::post('/like/post/{post}','LikeController@store');

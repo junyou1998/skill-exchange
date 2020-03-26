@@ -37116,6 +37116,21 @@ document.deleteTag = function (id) {
   }
 };
 
+document.addLike = function (id) {
+  var result = confirm('do you want to like me?');
+
+  if (result) {
+    var actionUrl = "/like/post/".concat(id);
+    console.log(actionUrl);
+    $.post(actionUrl, {
+      _method: 'post'
+    }).done(function () {
+      location.href = '/';
+      console.log(actionUrl);
+    });
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37185,16 +37200,28 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/sass/single_page.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/single_page.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!**************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/frontend/index.scss ***!
-  \**************************************************************************************************/
+/*!************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/frontend/index.scss ./resources/sass/single_page.scss ***!
+  \************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! E:\web\skill-exchange\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! E:\web\skill-exchange\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! E:\web\skill-exchange\resources\sass\frontend\index.scss */"./resources/sass/frontend/index.scss");
+__webpack_require__(/*! E:\web\skill-exchange\resources\sass\frontend\index.scss */"./resources/sass/frontend/index.scss");
+module.exports = __webpack_require__(/*! E:\web\skill-exchange\resources\sass\single_page.scss */"./resources/sass/single_page.scss");
 
 
 /***/ })
