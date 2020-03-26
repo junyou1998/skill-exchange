@@ -12,7 +12,7 @@
             <li>
                 <a class="category_sort" href="/">
                     <i class="fas fa-globe-americas"></i>
-                    <div class="text">全部</div>
+                    <div class="text">全部(測試)</div>
                 </a>
             </li>
             @foreach ($categories as $key=>$category)
@@ -46,6 +46,7 @@
                     <div class="user">
                         <div class="avatar"></div>
                         <div class="username">
+                            
                             {{$post->user->name}}
                             <div class="job">
                                 {{$post->region}}
@@ -57,7 +58,13 @@
                     </div>
                     <div class="love">
                         <div class="love-icon">
-                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-heart" onclick="addLike({{$post->id}})"></i>
+                            {{$post->likes->count()}}
+                            
+                            @foreach ($post->likes as $like)
+                            {{$like->user->id}}
+                            @endforeach
+                            {{-- {{Auth::user()->name}} --}}
                         </div>
                     </div>
                 </div>
