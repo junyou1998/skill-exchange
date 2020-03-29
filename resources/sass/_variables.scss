@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,500,700&display=swap&subset=chinese-traditional');
 
 
-// @import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
 
 
 @font-face {
@@ -17,7 +17,7 @@
 $body-bg: rgb(237, 237, 245);
 
 // Typography
-$font-family-sans-serif: 'Nunito', 'jf-openhuninn', sans-serif;
+$font-family-sans-serif: 'Nunito', 'Kosugi Maru', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
