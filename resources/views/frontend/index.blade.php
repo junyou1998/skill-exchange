@@ -16,25 +16,24 @@
                 </a>
             </li>
             @foreach ($categories as $key=>$category)
-            
+
             <li>
                 <a class="category_sort" href="/posts/category/{{$category->id}}">
                     <i class="fas fa-drum"></i>
                     <div class="text">{{$category->name}}</div>
                 </a>
             </li>
-            
+
             @endforeach
         </ul>
         <ul class="tags_sort col-12">
             熱門標籤 :
             @foreach ($tags as $key=>$tag)
-            @if($key<15)
-            <li>
+            @if($key<15) <li>
                 <a class="tag_sort" href="/posts/tag/{{$tag->id}}">#{{$tag->name}}</a>
-            </li>
-            @endif
-            @endforeach
+                </li>
+                @endif
+                @endforeach
         </ul>
     </div>
 
@@ -57,14 +56,18 @@
                     </div>
                     <div class="love">
                         <div class="love-icon">
+                            有{{$post->likes->count()}}個愛心
+                            @php
+                                $test = $post->likes->where('user_id',Auth::id())->count();
+                            @endphp
+                            @if($test>0)
+                            <i class="fas fa-heart loved" onclick="removeLike({{$post->id}})"></i>
+                            @else
                             <i class="fas fa-heart" onclick="addLike({{$post->id}})"></i>
-                            {{$post->likes->count()}}
-
-                            @foreach ($post->likes as $like)
-                            {{$like->user->id}}
-                            @endforeach
-                            {{-- {{Auth::user()->name}} --}}
+                            @endif()
+                            
                         </div>
+
                     </div>
                 </div>
                 <div class="content">

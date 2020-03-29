@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Post;
 use App\Category;
 use App\Tag;
 use App\Like;
 
+use Illuminate\Support\Facades\Auth;
 class FrontController extends Controller
 {
     public function index(){
         $posts =  Post::all();
         $categories = Category::all();
-        $likes = Like::all();
+        // $likes = Like::all();
+        $likes = Like::all()->where('user_id',Auth::id());
+        // dd($likes);
         // $tags = Tag::all();
         $tags = Tag::has('posts')->withCount('posts')->orderBy('posts_count','desc')->get();
         // dd($posts->likes);

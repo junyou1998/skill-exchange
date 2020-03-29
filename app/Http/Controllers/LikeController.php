@@ -12,11 +12,13 @@ class LikeController extends Controller
 {
     public function store(Request $request,$post){
         $like = new Like;
-        // // $like->fill($request->all());
         $like->user_id = Auth::id();
         $like->post_id = $post;
-
         $like->save();
-        // dd($post);
+    }
+
+    public function destroy(Request $request,$post){
+        $like = Like::where([['user_id',Auth::id()],['post_id',$post]]);
+        $like->delete();
     }
 }

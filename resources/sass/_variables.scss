@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: jf-openhuninn;
-    src: url('/fonts/jf-openhuninn-1.0.tff');
+    src: url('/fonts/jf-openhuninn-10.woff2');
 }
 
 
@@ -17,7 +17,7 @@
 $body-bg: rgb(237, 237, 245);
 
 // Typography
-$font-family-sans-serif: 'Nunito', 'Kosugi Maru', sans-serif;
+$font-family-sans-serif: 'Nunito', 'Kosugi Maru','jf-openhuninn', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 

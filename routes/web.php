@@ -52,3 +52,7 @@ Route::view('/single_page','single_page');
 
 
 Route::post('/like/post/{post}','LikeController@store');
+
+// Route::delete('/unlike/post/{post}','LikeController@destroy');
+
+Route::delete('/unlike/post/{post}','LikeController@destroy');

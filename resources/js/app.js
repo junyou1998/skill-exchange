@@ -64,3 +64,18 @@ document.addLike = function(id){
         })
     }
 }
+
+
+document.removeLike = function(id){
+    let result = confirm('do you want to unlike me?');
+    if(result){
+        let actionUrl = `/unlike/post/${id}`;
+        console.log(actionUrl)
+        $.post(actionUrl,{_method: 'delete'}).done(function(){
+
+            console.log('worked')
+            location.href='/';
+            console.log(actionUrl)
+        })
+    }
+}
