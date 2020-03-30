@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\User;
 use App\Post;
@@ -13,15 +12,15 @@ use Illuminate\Support\Facades\Auth;
 class FrontController extends Controller
 {
     public function index(){
-        $posts =  Post::all();
+        $posts =  Post::withCount(['likes'])->with(['likes'=>function ($query) {
+            $query->where('user_id',Auth::id());
+        }])->get();
+
         $categories = Category::all();
-        // $likes = Like::all();
-        $likes = Like::all()->where('user_id',Auth::id());
-        // dd($likes);
-        // $tags = Tag::all();
         $tags = Tag::has('posts')->withCount('posts')->orderBy('posts_count','desc')->get();
-        // dd($posts->likes);
-        return view('frontend.index',compact('posts','categories','tags','likes'));
+
+        
+        return view('frontend.index',compact('posts','categories','tags'));
     }
     public function indexWithCategory(Category $category){
         $posts = Post::where('category_id',$category->id)->get();

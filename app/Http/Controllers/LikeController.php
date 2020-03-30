@@ -15,10 +15,25 @@ class LikeController extends Controller
         $like->user_id = Auth::id();
         $like->post_id = $post;
         $like->save();
+
+        $likes = Post::find($post)->likes->count();
+
+        return Response([
+            'likes' => $likes,
+            'post_id'=>$post
+        ]);
     }
 
     public function destroy(Request $request,$post){
         $like = Like::where([['user_id',Auth::id()],['post_id',$post]]);
         $like->delete();
+
+        $likes = Post::find($post)->likes->count();
+
+        return Response([
+            'likes' => $likes,
+            'post_id'=>$post
+        ]);
     }
+
 }

@@ -15,7 +15,7 @@ class PostController extends Controller
         $user = User::findOrFail(Auth::id());
         $posts = $user->posts;
         
-
+        
         return view('frontend.posts.index',compact('posts'));
     }
 

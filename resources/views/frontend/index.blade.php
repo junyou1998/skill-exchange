@@ -56,18 +56,9 @@
                     </div>
                     <div class="love">
                         <div class="love-icon">
-                            有{{$post->likes->count()}}個愛心
-                            @php
-                                $test = $post->likes->where('user_id',Auth::id())->count();
-                            @endphp
-                            @if($test>0)
-                            <i class="fas fa-heart loved" onclick="removeLike({{$post->id}})"></i>
-                            @else
-                            <i class="fas fa-heart" onclick="addLike({{$post->id}})"></i>
-                            @endif()
-                            
+                        <i id="love_{{$post->id}}" class="fas fa-heart @if($post->likes->count()>0)loved @endif()" onclick="Like({{$post->id}})"></i>
+                        <span id="like_{{$post->id}}">{{$post->likes_count}}</span>
                         </div>
-
                     </div>
                 </div>
                 <div class="content">
@@ -125,7 +116,11 @@
 
 <script>
     $('.fa-heart').click(function(){
+        
         $(this).toggleClass('loved')
     })
+
+
+
 </script>
 @endsection

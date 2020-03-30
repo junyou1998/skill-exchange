@@ -53,29 +53,17 @@ document.deleteTag = function(id){
 }
 
 
-document.addLike = function(id){
-    let result = confirm('do you want to like me?');
-    if(result){
-        let actionUrl = `/like/post/${id}`;
-        console.log(actionUrl)
-        $.post(actionUrl,{_method: 'post'}).done(function(){
-            location.href='/';
-            console.log(actionUrl)
+document.Like = function(id){
+    if($(`#love_${id}`).hasClass('loved')){
+        let actionUrl = `/unlike/post/${id}`;
+        $.post(actionUrl,{_method: 'delete'}).done(function(e){
+            $(`#like_${e.post_id}`).text(e.likes)
         })
     }
-}
-
-
-document.removeLike = function(id){
-    let result = confirm('do you want to unlike me?');
-    if(result){
-        let actionUrl = `/unlike/post/${id}`;
-        console.log(actionUrl)
-        $.post(actionUrl,{_method: 'delete'}).done(function(){
-
-            console.log('worked')
-            location.href='/';
-            console.log(actionUrl)
+    else{
+        let actionUrl = `/like/post/${id}`;
+        $.post(actionUrl,{_method: 'post'}).done(function(e){
+            $(`#like_${e.post_id}`).text(e.likes)
         })
     }
 }
