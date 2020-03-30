@@ -56,7 +56,12 @@
                     </div>
                     <div class="love">
                         <div class="love-icon">
-                        <i id="love_{{$post->id}}" class="fas fa-heart @if($post->likes->count()>0)loved @endif()" onclick="Like({{$post->id}})"></i>
+                            @if (Auth::check())
+                            <i id="love_{{$post->id}}" class="fas heart fa-heart @if($post->likes->count()>0)loved @endif()" onclick="Like({{$post->id}})"></i>
+                            @else
+                            <i class="fas fa-heart" onclick="return alert('登入後才能加愛心喔~')"></i>
+                            @endif
+                        
                         <span id="like_{{$post->id}}">{{$post->likes_count}}</span>
                         </div>
                     </div>
@@ -115,7 +120,7 @@
 @section('js')
 
 <script>
-    $('.fa-heart').click(function(){
+    $('.heart').click(function(){
         
         $(this).toggleClass('loved')
     })

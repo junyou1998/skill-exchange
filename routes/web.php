@@ -21,7 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::middleware('auth')->group(function () {
-    
+    Route::post('/like/post/{post}','LikeController@store');
+
+// Route::delete('/unlike/post/{post}','LikeController@destroy');
+
+Route::delete('/unlike/post/{post}','LikeController@destroy');
 });
 
 // 前端畫面-使用者
@@ -51,8 +55,3 @@ Route::delete('/admin/posts/{post}', 'PostController@destroyByAdmin')->middlewar
 Route::view('/single_page','single_page');
 
 
-Route::post('/like/post/{post}','LikeController@store');
-
-// Route::delete('/unlike/post/{post}','LikeController@destroy');
-
-Route::delete('/unlike/post/{post}','LikeController@destroy');
