@@ -16,6 +16,7 @@
         @else
         未分類
         @endif
+        <i class="fas fa-heart loved"></i>
     </div>
 
 </div>
