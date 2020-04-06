@@ -30,10 +30,10 @@
                     <li><a class="active" href="/"><i class='bx bxs-home'></i>首頁</a></li>
                     @guest
                     @else
-                    <li><a href=""><i class='bx bx-border-all'></i>我的貼文</a></li>
-                    <li><a href=""><i class='bx bxs-pin'></i>收藏貼文</a></li>
-                    <li><a href=""><i class='bx bxs-info-circle'></i>個人資料</a></li>
-                    <li><a href=""><i class='bx bxs-message'></i>訊息</a></li>
+                    <li><a href="/posts"><i class='bx bx-border-all'></i>我的貼文</a></li>
+                    <li><a href=""><i class='bx bxs-pin'></i>收藏貼文(X)</a></li>
+                    <li><a href=""><i class='bx bxs-info-circle'></i>個人資料(X)</a></li>
+                    <li><a href=""><i class='bx bxs-message'></i>訊息(X)</a></li>
                     @endguest
                 </ul>
                 @guest
