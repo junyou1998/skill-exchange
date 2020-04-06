@@ -192,7 +192,23 @@ body {
             justify-content: center;
             color: black;
             text-decoration: none;
-            border-radius: 3px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0px 5px 15px rgba(black,.2);
+            &.active{
+                &:before{
+                    content: "";
+                    display: inline-block;
+                    width: 100%;
+                    height: 6px;
+                    background-color: $yellow;
+                    position: absolute;
+                    bottom: 0;
+
+
+                }
+            }
             i{
                 font-size: 1.5rem;
             }
@@ -242,8 +258,13 @@ body {
         }
         .name{
             text-align: center;
-            margin: 15px 0;
+            margin: 15px auto;
             font-size: 1.2rem;
+        }
+        .unlogin{
+            // display: inline-block;
+            text-align: center;
+            margin: 15px auto;
         }
         .page-list{
             list-style: none;
@@ -294,7 +315,9 @@ body {
 }
 
 
-
+.ad{
+    background-color: #d9d9d9;
+}
 
 
 

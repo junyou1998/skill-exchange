@@ -15,7 +15,14 @@
                     <img src="https://picsum.photos/id/55/80/80" alt="">
                 </div>
                 @guest
-                <a class="name nav-link" href="{{ route('login') }}">點此登入</a>
+                <div class="unlogin">
+                    <a href="{{ route('login') }}">登入</a>
+                /
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}">註冊</a>
+                @endif
+                </div>
+                
                 @else
                 <div class="name">{{ Auth::user()->name }}</div>
                 @endguest
@@ -29,6 +36,20 @@
                     <li><a href=""><i class='bx bxs-message'></i>訊息</a></li>
                     @endguest
                 </ul>
+                @guest
+                @else
+                
+                <div class="logout">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        <i class='bx bx-log-out'></i> 登出
+                    </a>
+                </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+                
+                @endguest
             </div>
         </div>
         <div class="col-9">
@@ -52,7 +73,7 @@
                 <div class="swiper-container1 category-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <a href="/">
+                            <a href="/" class="active">
                                 <i class='bx bx-world'></i>
                                 <div>全部</div>
                             </a>
@@ -74,14 +95,13 @@
                 <div class="col-12 hot">
                     熱門關鍵字
                     @foreach ($tags as $key=>$tag)
-                    @if($key<15)
-                    <a class="tag" href="/posts/tag/{{$tag->id}}"># {{$tag->name}}</a>
-                    @endif
-                    @endforeach
+                    @if($key<15) <a class="tag" href="/posts/tag/{{$tag->id}}"># {{$tag->name}}</a>
+                        @endif
+                        @endforeach
                 </div>
                 <div class="col-12 ">
                     <div class="search">
-                        <input type="text" placeholder="搜尋標籤...">
+                        <input type="text" placeholder="搜尋標籤...(尚無此功能)">
                         <i class='bx bx-search-alt'></i>
                     </div>
                 </div>
@@ -99,7 +119,9 @@
                             <div class="time">5hr</div>
                             <div class="hearrt">
                                 @if (Auth::check())
-                                <i id="love_{{$post->id}}" class="fas heart fa-heart @if($post->likes->count()>0)loved @endif()" onclick="Like({{$post->id}})"></i>
+                                <i id="love_{{$post->id}}"
+                                    class="fas heart fa-heart @if($post->likes->count()>0)loved @endif()"
+                                    onclick="Like({{$post->id}})"></i>
                                 @else
                                 <i class="fas fa-heart" onclick="return alert('登入後才能加愛心喔~')"></i>
                                 @endif
@@ -127,7 +149,8 @@
                         </div>
                         <div class="function">
                             @if(isset($post->category))
-                            <a href="/posts/category/{{$post->category_id}} " class="category-sort">{{$post->category->name}}</a>
+                            <a href="/posts/category/{{$post->category_id}} "
+                                class="category-sort">{{$post->category->name}}</a>
                             @else
                             未分類
                             @endif
@@ -136,7 +159,7 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="col-2">sidebar</div>
+                <div class="col-2 ad">這個部分可以放廣告</div>
             </div>
         </div>
     </div>
