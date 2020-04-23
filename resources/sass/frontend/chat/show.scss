@@ -1,0 +1,83 @@
+$green: #71AC8D;
+$lightgreen: #5DBA89;
+$deepgreen: #2F6C4C;
+$yellow: #EFB865;
+$brown: #BD3F3F;
+$red: #E16767;
+
+
+body {
+    overflow: hidden;
+}
+
+.app {
+    height: 100vh;
+    // display: flex;
+}
+
+.dialogue {
+    // width: 100%;
+    background-color: #f7f7f7;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-end;
+    padding: 15px;
+    overflow-y: scroll;
+    height: calc(100vh - 150px);
+    .sent{
+        width: 100%;
+        display: flex;
+        position: fixed;
+        bottom: 0px;
+    }
+    .message {
+        display: flex;
+        margin-bottom: 10px;
+        // width: 100%;
+        align-items: flex-end;
+
+        .avatar {
+            width: 25px;
+            // text-align: center;
+            flex-shrink: 0;
+
+            .photo {
+                // width: 100%;
+                // width: 25px;
+                height: 25px;
+                background-color: #c5c5c5;
+                border-radius: 50%;
+            }
+        }
+
+        .msg {
+            background-color: #e9e9e9;
+            padding: 10px 15px;
+            // border-radius: 10px;
+            position: relative;
+            word-break: break-all;
+            // min-width: 40%;
+        }
+
+        &.remote {
+            .msg {
+                margin-left: 15px;
+                margin-right: 250px;
+                border-radius: 30px 30px 30px 0px;
+            }
+        }
+
+        &.local {
+            justify-content: flex-end;
+            .msg {
+                margin-left: 300px;
+                margin-right: 15px;
+                order: -1;
+                background-color: $yellow;
+                box-shadow: inset 0px 0px 20px rgba(darken($yellow,10%),.8), 0px 5px 8px rgba(darken($yellow,10%),.2);
+                color: #fff;
+                border-radius: 30px 30px 0px 30px;
+            }
+        }
+    }
+}

@@ -55,3 +55,6 @@ Route::delete('/admin/posts/{post}', 'PostController@destroyByAdmin')->middlewar
 Route::view('/single_page','single_page');
 
 
+Route::get('/chat/{user}','MessageController@show');
+Route::post('/chat/{user}','MessageController@store');
+
