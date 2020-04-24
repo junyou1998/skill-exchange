@@ -87,7 +87,7 @@
                         </div>
                         @endforeach
                         <div class="swiper-slide"><a href="">其他選項1</a></div>
-                        <div class="swiper-slide"><a href="">其他選項2</a></div>
+                        <div class="swiper-slide"><a href="">其他選項QQ2</a></div>
                     </div>
                 </div>
             </div>
