@@ -11,6 +11,7 @@
             </div>
             <div class="col-lg-8 col-12">
                 <div class="dialogue" id="messages">
+                    我是:{{Auth::id()}}在跟{{$user->id}}聊天
                     @foreach ($messages as $message)
                     <div class="message @if($message->user->id == Auth::id())local @else remote @endif">
                         <div class="avatar">
@@ -32,39 +33,7 @@
         </div>
     </div>
 </div>
-{{-- <div class="container">
-    
-    <div class="row">
-        <div class="col-4">
-            <h4>聊天列表</h4>
-            <ul>
-                @foreach ($contacts as $contact)
-                @if($contact->user_id == Auth::id())
-                    <li>
-                        {{$contact->receiver_id}}
-                    </li>
-                @else
-                    <li>
-                        {{$contact->user_id}}
-                    </li>
-                @endif
-                @endforeach
-                
-            </ul>
-        </div>
-        <div class="col-8">
-        <h3>{{$user->name}}</h3>
-            <ul id="messages">
-                @foreach ($messages as $message)
-                <li>{{$message->content}}</li>
-                @endforeach
-            </ul>
-            <input id="message" class="form-control" type="text" name="content">
-            <button id="send" type="submit" onclick="send({{$user->id}})">送出</button>
-        </div>
-    </div>
-    
-</div> --}}
+
 @endsection
 
 @section('js')
@@ -81,11 +50,6 @@ function send(user){
     window.axios.post('/chat/'+user,{
             message: messageElement.value,
         });
-        // let element = document.createElement('li')
-        //     element.innerText = messageElement.value;
-        //     element.classList.add('text-primary');
-
-        //     messagesElement.appendChild(element);
 
         messagesElement.innerHTML += 
         `
@@ -101,7 +65,6 @@ function send(user){
         messageElement.value = "";
 
 
-        // var objDiv = document.getElementById("your_div");
         messagesElement.scrollTop = messagesElement.scrollHeight;
 }
 
@@ -110,26 +73,27 @@ function send(user){
 Echo.private('chat.{{ auth()->user()->id }}')
     .listen('MessageSent',(e)=>{
         console.log(e)
+        // console.log({{auth()->user()->id}})
+        var person = {{$user->id}}
+        // console.log(`這是來自${e.message.user_id}的訊息` + {{$user->id}})
 
-        // let element = document.createElement('li')
+        if(e.message.user_id != person){
+            console.log('有其他人想跟你講話')
+        }
+        else{
+            messagesElement.innerHTML += 
+            `
+            <div class="message remote">
+                <div class="avatar">
+                    <div class="photo">
 
-        // element.innerText = e.message.content;
-        // element.classList.add('text-success');
-
-        // messagesElement.appendChild(element);
-
-
-        messagesElement.innerHTML += 
-        `
-        <div class="message remote">
-            <div class="avatar">
-                <div class="photo">
-
+                    </div>
                 </div>
+                <div class="msg">${e.message.content}</div>
             </div>
-            <div class="msg">${e.message.content}</div>
-        </div>
-        `
+            `
+        }
+        
     })
 </script>
 @endsection
