@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-10 posts">
+                <div class="col-12 posts">
                     @foreach ($posts as $post)
                     <div class="post">
                         <div class="head">
@@ -152,14 +152,14 @@
                             <a href="/posts/category/{{$post->category_id}} "
                                 class="category-sort">{{$post->category->name}}</a>
                             @else
-                            未分類
+                            <div class="category-sort">未分類</div>
                             @endif
-                            <a href="" class="send-btn"><i class='bx bx-send'></i> 傳訊</a>
+                            <a href="/chat/{{$post->user->id}}" class="send-btn"><i class='bx bx-send'></i> 傳訊</a>
                         </div>
                     </div>
                     @endforeach
                 </div>
-                <div class="col-2 ad">這個部分可以放廣告</div>
+                {{-- <div class="col-2 ad">這個部分可以放廣告</div> --}}
             </div>
         </div>
     </div>

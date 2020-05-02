@@ -6,10 +6,35 @@
 <div class="app">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 d-none">
-                好友列表
+            <div class="side-lists col-3">
+                <h3>聊天室</h3>
+                <ul class="chat-lists">
+
+                    @foreach ($inbox as $list)
+                    <li class="list @if($user->id == $list->user_id OR $user->id == $list->receiver_id) active @endif">
+                    <a href="/chat/@if($list->user_id == Auth::id()){{$list->receiver_id}}@else{{$list->user_id}}@endif">
+                            <div class="content">
+                                <div class="avatar">
+                                    <div class="photo">
+
+                                    </div>
+                                </div>
+                                <div class="info">
+                                    <div class="name">
+                                        @if($list->user_id == Auth::id()){{$user::find($list->receiver_id)->name}}
+                                        @else{{$user::find($list->user_id)->name}}
+                                        @endif
+                                    </div>
+                                    <div class="msg">{{$list->content}}</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    @endforeach
+
+                </ul>
             </div>
-            <div class="col-lg-8 col-12">
+            <div class="col-7 chat-room">
                 <div class="dialogue" id="messages">
                     我是:{{Auth::id()}}在跟{{$user->id}}聊天
                     @foreach ($messages as $message)
@@ -18,27 +43,32 @@
                             <div class="photo">
 
                             </div>
-                            {{-- <div class="name">{{$message->user->name}}</div> --}}
-                        </div>
-                        <div class="msg">{{$message->content}}</div>
+                            {{-- <div class="name">{{$message->user->name}}
+                        </div> --}}
                     </div>
-                    @endforeach
-                    
+                    <div class="msg">{{$message->content}}</div>
                 </div>
-                <div class="send">
-                    <textarea class="form-control" name=""cols="30" rows="2" id="message" name="content"></textarea>
-                    <button id="send" type="submit" onclick="send({{$user->id}})">送出</button>
-                </div>
+                @endforeach
+
+            </div>
+            <div class="send">
+                <input type="text" id="message" name="content">
+                {{-- <textarea class="form-control" name=""cols="30" rows="2" id="message" name="content"></textarea> --}}
+                <button id="send" type="submit" onclick="send({{$user->id}})">送出</button>
             </div>
         </div>
+        <div class="col-2">
+            對方資訊
+        </div>
     </div>
+</div>
 </div>
 
 @endsection
 
 @section('js')
 <script>
-const sendElement = document.getElementById('send');
+    const sendElement = document.getElementById('send');
 const messageElement = document.getElementById('message');
 
 const messagesElement = document.getElementById('messages');
