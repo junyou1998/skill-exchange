@@ -17,12 +17,12 @@
                 @guest
                 <div class="unlogin">
                     <a href="{{ route('login') }}">登入</a>
-                /
-                @if (Route::has('register'))
-                <a href="{{ route('register') }}">註冊</a>
-                @endif
+                    /
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}">註冊</a>
+                    @endif
                 </div>
-                
+
                 @else
                 <div class="name">{{ Auth::user()->name }}</div>
                 @endguest
@@ -38,9 +38,10 @@
                 </ul>
                 @guest
                 @else
-                
+
                 <div class="logout">
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                         <i class='bx bx-log-out'></i> 登出
                     </a>
                 </div>
@@ -48,7 +49,7 @@
                     @csrf
                 </form>
 
-                
+
                 @endguest
             </div>
         </div>
@@ -143,7 +144,7 @@
                                 <span>{{$post->learn}}</span>
                             </div>
                             <p>{{ Str::limit($post->description,100)}}</p>
-                            <a class="row continue-reading" href="/posts/{{$post->id}}">
+                            <a class="row continue-reading" onclick="pop({{$post->id}})">
                                 閱讀全文
                             </a>
                         </div>
@@ -160,6 +161,21 @@
                     @endforeach
                 </div>
                 {{-- <div class="col-2 ad">這個部分可以放廣告</div> --}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="content"></p>
             </div>
         </div>
     </div>
@@ -197,5 +213,16 @@
                 prevEl: '.swiper-button-prev',
             },
         });
+
+
+    function pop(id){
+        console.log('pop pop')
+        let actionUrl = `/postts/${id}`;
+        $.get(actionUrl).done(function(result){
+            console.log(result);
+            $('#content').html(`我擅長: ${result.skill}/想交換: ${result.learn}/細節: ${result.description}`)
+            $('.modal').modal('show')
+        })
+    }
 </script>
 @endsection

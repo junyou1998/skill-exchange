@@ -36,11 +36,15 @@ Route::get('/posts/{post}/edit', 'PostController@edit');
 Route::put('/posts/{post}', 'PostController@update');
 Route::delete('/posts/{post}', 'PostController@destroy');
 
+
+
 // 前端畫面-無限制
 Route::get('/', 'FrontController@index');
 Route::get('/posts/{post}', 'PostController@show');
 Route::get('/posts/category/{category}','FrontController@indexWithCategory');
 Route::get('/posts/tag/{tag}','FrontController@indexWithTag');
+
+Route::get('/postts/{post}','PostController@preview');
 
 
 // 後臺管理者

@@ -93,5 +93,8 @@ class PostController extends Controller
         return redirect('/posts');
     }
 
+    public function preview(Post $post){
+        return response()->json($post);
+    }
     
 }
