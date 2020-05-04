@@ -74,21 +74,20 @@
                 <div class="swiper-container1 category-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <a href="/" class="active">
+                            <a href="/" class="@if(isset($category)) @else active @endif">
                                 <i class='bx bx-world'></i>
                                 <div>全部</div>
                             </a>
                         </div>
-                        @foreach ($categories as $key=>$category)
+                        @foreach ($categories as $key=>$cate)
                         <div class="swiper-slide">
-                            <a href="/posts/category/{{$category->id}}">
+                            <a href="/posts/category/{{$cate->id}}"
+                                class="@if(isset($category) && $cate->id==$category->id)active @endif">
                                 <i class='bx bx-code-block'></i>
-                                <div>{{$category->name}}</div>
+                                <div>{{$cate->name}}</div>
                             </a>
                         </div>
                         @endforeach
-                        <div class="swiper-slide"><a href="">其他選項1</a></div>
-                        <div class="swiper-slide"><a href="">其他選項QQ2</a></div>
                     </div>
                 </div>
             </div>
@@ -166,16 +165,41 @@
     </div>
 </div>
 
-<div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+<div class="modal " tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
             <div class="modal-body">
-                <p id="content"></p>
+                <div class="col-12 top">
+                    <div class="avatar"></div>
+                    <div class="call">
+                        <div class="name">賈寶枚</div>
+                        <div class="location">台中市</div>
+                    </div>
+                    <div class="right">
+                        <div class="days">10天前</div>
+                        <div class="like">
+                            <i class='hicon bx bxs-heart' style='color:#f90404'></i>+99
+                        </div>
+                        <a href=""><div class="language">語言</div></a>
+                    </div>
+                </div>
+                <div class="col-12 aim">
+                    <div class="tag">#我想學日文</div>
+                    <div class="goodat">我擅長
+                        <span class="good_content"></span>
+                    </div>
+                    <div class="wants">我想學
+                        <span class="wants_content"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="col-12 main">
+                    <div class="post">
+                    </div>
+                </div>
+                <div class="send_button">
+                    <i class='plane bx bxs-paper-plane' style='color:#fefefe'></i>
+                </div>
             </div>
         </div>
     </div>
@@ -216,11 +240,15 @@
 
 
     function pop(id){
-        console.log('pop pop')
         let actionUrl = `/postts/${id}`;
         $.get(actionUrl).done(function(result){
             console.log(result);
-            $('#content').html(`我擅長: ${result.skill}/想交換: ${result.learn}/細節: ${result.description}`)
+
+            $('.modal .good_content').html(result.skill)
+            $('.modal .wants_content').html(result.learn)
+            $('.modal .post').html(result.description)
+            $('.modal .language').html(result.category)
+            
             $('.modal').modal('show')
         })
     }

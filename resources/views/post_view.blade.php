@@ -23,11 +23,6 @@
        </div>
        <div class="col-12 aim">
               <div class="tag">#我想學日文</div>
-              <div class="tag">#我想學日文</div>
-              <div class="tag">#我想學日文</div>
-              <div class="tag">#我想學日文</div>
-              <div class="tag">#我想學日文</div>
-              <div class="tag">#我想學日文</div>
               <div class="goodat">我擅長
                      <span class="good_content">日文的口說以及讀寫</span>
               </div>

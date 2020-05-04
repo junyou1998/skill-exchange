@@ -26,7 +26,7 @@ class FrontController extends Controller
         $posts = Post::where('category_id',$category->id)->get();
         $categories = Category::all();
         $tags = Tag::has('posts')->withCount('posts')->orderBy('posts_count','desc')->get();
-        return view('frontend.index',compact('posts','categories','tags'));
+        return view('frontend.index',compact('posts','categories','tags','category'));
     }
     public function indexWithTag(Tag $tag){
         $posts = $tag->posts;

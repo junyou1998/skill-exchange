@@ -94,6 +94,7 @@ class PostController extends Controller
     }
 
     public function preview(Post $post){
+        
         return response()->json($post);
     }
     
