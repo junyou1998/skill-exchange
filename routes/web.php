@@ -62,3 +62,7 @@ Route::view('/single_page','single_page');
 Route::get('/chat/{user}','MessageController@show');
 Route::post('/chat/{user}','MessageController@store');
 
+// 切版靜態頁
+Route::view('/post_view','post_view');
+
+
