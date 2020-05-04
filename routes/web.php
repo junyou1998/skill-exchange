@@ -25,7 +25,10 @@ Route::middleware('auth')->group(function () {
 
 // Route::delete('/unlike/post/{post}','LikeController@destroy');
 
-Route::delete('/unlike/post/{post}','LikeController@destroy');
+    Route::delete('/unlike/post/{post}','LikeController@destroy');
+
+    Route::get('/chat/{user}','MessageController@show');
+    Route::post('/chat/{user}','MessageController@store');
 });
 
 // 前端畫面-使用者
@@ -59,6 +62,5 @@ Route::delete('/admin/posts/{post}', 'PostController@destroyByAdmin')->middlewar
 Route::view('/single_page','single_page');
 
 
-Route::get('/chat/{user}','MessageController@show');
-Route::post('/chat/{user}','MessageController@store');
+
 
