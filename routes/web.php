@@ -64,3 +64,7 @@ Route::view('/single_page','single_page');
 
 
 
+// 切版靜態頁
+Route::view('/post_view','post_view');
+
+

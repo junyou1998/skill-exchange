@@ -1,0 +1,160 @@
+.all {
+    width: 680px;
+    height: 540px;
+    box-shadow: 3px 5px 15px rgb(77, 77, 77);
+    border-radius: 10px;
+    position: relative;
+
+    .top {
+        position: relative;
+        height: 100px;
+        display: flex;
+        align-items: center;
+
+        .avatar {
+            background-color: rgb(255, 140, 140);
+            height: 65px;
+            width: 65px;
+            background-position: center;
+            background-size: cover;
+            background-image: url('https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png');
+            border-radius: 50%;
+        }
+
+        .call {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 10px;
+
+            .name {
+                font-weight: bold;
+            }
+
+            .location {
+                font-size: small;
+                color: rgb(122, 122, 122);
+            }
+        }
+
+        .right {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            right: -15px;
+
+            .days {
+                font-size: 10px;
+                color: rgb(122, 122, 122);
+            }
+
+            .like {
+                color: #7F7F7F;
+                margin-left: 10px;
+                margin-right: 20px;
+                width: 38px;
+                position: relative;
+                text-align: end;
+                font-size: 10px;
+
+                .hicon {
+                    font-size: 20px;
+                    position: absolute;
+                    left: 0px;
+                    top: 50%;
+                    transform: translateY(-50%)
+                }
+            }
+
+            .language {
+                background-color: rgb(113, 172, 141);
+                color: white;
+                height: 40px;
+                width: 60px;
+                font-size: 14px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px 0px 0px 5px;
+                box-shadow: 2px 5px 10px rgb(105, 104, 104);
+            }
+        }
+    }
+
+    .aim {
+        .tag {
+            font-size: 12px;
+            background-color: rgb(113, 172, 141);
+            color: white;
+            display: inline-block;
+            border-radius: 15px;
+            padding: 2px 8px;
+            margin: 0 7px 10px 0;
+        }
+
+        .goodat {
+            font-size: 16px;
+            color: #2F6C4C;
+            margin-bottom: 5px;
+
+            .good_content {
+                margin-left: 7px;
+                font-size: 14px;
+            }
+        }
+
+        .wants {
+            font-size: 16px;
+            color: #5DBA89;
+            margin-bottom: 5px;
+
+            .wants_content {
+                margin-left: 7px;
+                font-size: 14px;
+            }
+        }
+
+        .line {
+            height: 1px;
+            background-color: #D6D6D6;
+        }
+    }
+
+    .main {
+        display: inline-block;
+        overflow-Y: scroll;
+        width: 100%;
+        height: 235px;
+        margin-top: 10px;
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #858585;
+            border-radius: 3px;
+        }
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #EDEDF5;
+        }
+    }
+
+    .send_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        background-color: rgb(113, 172, 141);
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        border-radius: 0 0 10px 10px;
+
+        .plane {
+            font-size: 36px;
+        }
+    }
+}
