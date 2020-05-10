@@ -94,8 +94,10 @@ class PostController extends Controller
     }
 
     public function preview(Post $post){
-        
-        return response()->json($post);
+        $category = Category::find($post->category_id);
+        $user = User::find($post->user_id);
+
+        return response()->json(['post'=>$post,'category'=>$category,'user'=>$user]);
     }
     
 }

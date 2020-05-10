@@ -169,6 +169,8 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-body">
+
+
                 <div class="col-12 top">
                     <div class="avatar"></div>
                     <div class="call">
@@ -180,7 +182,7 @@
                         <div class="like">
                             <i class='hicon bx bxs-heart' style='color:#f90404'></i>+99
                         </div>
-                        <a href=""><div class="language">語言</div></a>
+                        <a href="" class="language">語言</a>
                     </div>
                 </div>
                 <div class="col-12 aim">
@@ -197,9 +199,11 @@
                     <div class="post">
                     </div>
                 </div>
-                <div class="send_button">
+                <a class="send_button" href="">
                     <i class='plane bx bxs-paper-plane' style='color:#fefefe'></i>
-                </div>
+                </a>
+
+
             </div>
         </div>
     </div>
@@ -243,12 +247,17 @@
         let actionUrl = `/postts/${id}`;
         $.get(actionUrl).done(function(result){
             console.log(result);
-
-            $('.modal .good_content').html(result.skill)
-            $('.modal .wants_content').html(result.learn)
-            $('.modal .post').html(result.description)
-            $('.modal .language').html(result.category)
-            
+            let post = result.post
+            let category = result.category
+            let user = result.user
+            $('.modal .good_content').html(post.skill)
+            $('.modal .wants_content').html(post.learn)
+            $('.modal .post').html(post.description)
+            $('.modal .language').html(category.name)
+            $('.modal .send_button').attr('href',`/chat/${post.user_id}`)
+            $('.modal .language').attr('href',`/posts/category/${post.category_id}`)
+            $('.modal .name').html(user.name)
+            $('.modal .location').html(post.region)
             $('.modal').modal('show')
         })
     }

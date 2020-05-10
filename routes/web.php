@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 // Route::delete('/unlike/post/{post}','LikeController@destroy');
 
     Route::delete('/unlike/post/{post}','LikeController@destroy');
-
+    Route::get('/chat','MessageController@index');
     Route::get('/chat/{user}','MessageController@show');
     Route::post('/chat/{user}','MessageController@store');
 });
@@ -68,3 +68,5 @@ Route::view('/single_page','single_page');
 Route::view('/post_view','post_view');
 
 
+Route::get('/message_board','MessageBoardController@index');
+Route::post('/message_board','MessageBoardController@store');

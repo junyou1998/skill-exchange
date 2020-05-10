@@ -19,3 +19,8 @@ Broadcast::channel('chat.{receiverid}', function ($user,$receiverid) {
     // dd($user);
     return auth()->check();
 });
+
+Broadcast::channel('message_board', function ($user, $id) {
+    // dd($user);
+    return (int) $user->id === (int) $id;
+});

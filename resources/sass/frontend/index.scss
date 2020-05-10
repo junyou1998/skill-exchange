@@ -16,21 +16,23 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 0 5px 0 5px;
-}
-
-.post {
-    flex: 0 0 calc(50% - 20px);
-    margin: 10px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 5px 5px rgba(black, .2);
-    min-height: 300px;
-    overflow: hidden;
-    @media screen and (max-width: 768px){
-        flex: 0 0 calc(100% - 10px);
+    .post {
+        flex: 0 0 calc(50% - 20px);
+        margin: 10px;
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 5px 5px rgba(black, .2);
+        min-height: 300px;
+        overflow: hidden;
+        @media screen and (max-width: 768px){
+            flex: 0 0 calc(100% - 10px);
+        }
     }
 }
+
+
 
 .swiper-container {
     width: 100%;
@@ -147,6 +149,11 @@ body {
         justify-content: center;
         font-size: .8rem;
         color: $lightgreen;
+        cursor: pointer;
+        color: $green;
+        &:hover{
+            color: $green;
+        }
     }
 }
 .function{
@@ -301,16 +308,16 @@ body {
                         padding: 3px;
                         border: 1px solid $green;
                     }
-                    &:before{
-                        content: '';
-                        display: inline-block;
-                        position: absolute;
-                        width: 50px;
-                        height: 2px;
-                        background-color:black;
-                        bottom: 0;
-                        left: 80px;
-                    }
+                    // &:before{
+                    //     content: '';
+                    //     display: inline-block;
+                    //     position: absolute;
+                    //     width: 50px;
+                    //     height: 2px;
+                    //     background-color:black;
+                    //     bottom: 0;
+                    //     left: 80px;
+                    // }
                 }
             }
         }
@@ -321,8 +328,6 @@ body {
 .ad{
     background-color: #d9d9d9;
 }
-
-
 
 
 .top {
@@ -395,8 +400,9 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
+            text-decoration: none;
             border-radius: 5px 0px 0px 5px;
-            box-shadow: 2px 5px 10px rgb(105, 104, 104);
+            // box-shadow: 2px 5px 10px rgb(105, 104, 104);
         }
     }
 }
