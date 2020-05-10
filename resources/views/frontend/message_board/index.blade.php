@@ -9,7 +9,11 @@
         flex-wrap: wrap;
         /* animation: slide 20s linear infinite; */
     }
-
+    .description{
+        padding: 20px 50px;
+        font-size: 28px;
+        color: #555555;
+    }
     .block {
         display: inline-block;
         padding: 10px 20px;
@@ -64,7 +68,10 @@
         padding: 0 20px;
 
     }
-
+    span{
+        box-shadow: inset 0 -10px 0 #01ded3;
+        
+    }
     .input input {
         margin: 0 20px 0 10px;
         height: 50px;
@@ -102,6 +109,7 @@
 @section('content')
 <div class="head">
     <div id="text" data-text="留言者">留言板</div>
+    
     <div class="input">
         <label for="name">留言者:</label>
         <input type="text" id="name" list="role" autocomplete="off">
@@ -113,7 +121,9 @@
         <button id="sent_btn" onclick="send()">送出</button>
     </div>
 </div>
-
+<div class="description">
+    哈囉~我們是<span>因緣技會</span>，我們知道還有很多不足的地方，也正積極地克服中，想打造一個好用的<span>技能交換平台</span>，如果對我們的展覽有什麼<span>建議</span>都希望能不吝在此留言，想說什麼都可以~也可以寫個<span>鼓勵</span>的話呦~
+</div>
 <div id="message">
     @foreach ($messages as $message)
     <div class="block">{{$message->name}}:{{$message->content}}</div>
