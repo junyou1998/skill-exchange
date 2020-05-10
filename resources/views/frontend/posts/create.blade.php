@@ -32,7 +32,7 @@
             </div>
 
             <div class="form-group">
-                <label for="tags">標籤</label>
+                <label for="tags">標籤(請用英文逗點分開每個標籤)</label>
                 <input class="form-control" type="text" name="tags" id="tags" value="">
             </div>
 
