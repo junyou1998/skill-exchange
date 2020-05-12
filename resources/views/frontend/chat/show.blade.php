@@ -77,7 +77,8 @@ const messagesElement = document.getElementById('messages');
 messagesElement.scrollTop = messagesElement.scrollHeight;
 
 function send(user){
-    console.log('work!')
+    if(messageElement.value!=""){
+        console.log('work!')
     $(`#user_${user} .msg`).html(messageElement.value)
     window.axios.post('/chat/'+user,{
             message: messageElement.value,
@@ -98,8 +99,18 @@ function send(user){
 
 
         messagesElement.scrollTop = messagesElement.scrollHeight;
+    }
+    else{
+        console.log('空白拉')
+    }
 }
-
+document.addEventListener('keypress', function(e){
+    if(e.keyCode == 13){
+        $("#send").click()
+        console.log('snet')
+    }
+    console.log(e.keyCode)
+});
     
     
 Echo.private('chat.{{ auth()->user()->id }}')
@@ -125,6 +136,7 @@ Echo.private('chat.{{ auth()->user()->id }}')
             </div>
             `
         }
+        messagesElement.scrollTop = messagesElement.scrollHeight;
         
     })
 </script>
