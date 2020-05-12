@@ -116,7 +116,7 @@
                             </div>
                             <div class="name">{{$post->user->name}}<div class="area">{{$post->region}}</div>
                             </div>
-                            <div class="time">5hr</div>
+                        <div class="time">{{$post->created_at}}</div>
                             <div class="hearrt">
                                 @if (Auth::check())
                                 <i id="love_{{$post->id}}"
@@ -178,7 +178,7 @@
                         <div class="location">台中市</div>
                     </div>
                     <div class="right">
-                        <div class="days">10天前</div>
+                    <div class="days"></div>
                         <div class="like">
                             <i class='hicon bx bxs-heart' style='color:#f90404'></i>+99
                         </div>

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -34,5 +35,13 @@ class Post extends Model
 
     public function likes(){
         return $this->hasMany('App\Like');
+    }
+
+    public function getCreatedAtAttribute($date) {
+        if (Carbon::now() > Carbon::parse($date)->addDays(15)) {
+            return Carbon::parse($date);
+        }
+    
+        return Carbon::parse($date)->diffForHumans();
     }
 }
