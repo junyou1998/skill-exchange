@@ -324,7 +324,9 @@ body {
     }
 }
 
-
+.r-content{
+    min-height: calc(100vh - 55px);
+}
 .ad{
     background-color: #d9d9d9;
 }

@@ -53,7 +53,7 @@
                 @endguest
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-9 r-content">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">

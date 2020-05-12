@@ -14,7 +14,7 @@ class FrontController extends Controller
     public function index(){
         $posts =  Post::withCount(['likes'])->with(['likes'=>function ($query) {
             $query->where('user_id',Auth::id());
-        }])->get();
+        }])->orderBy('created_at','desc')->get();
 
         $categories = Category::all();
         $tags = Tag::has('posts')->withCount('posts')->orderBy('posts_count','desc')->get();
@@ -23,7 +23,7 @@ class FrontController extends Controller
         return view('frontend.index',compact('posts','categories','tags'));
     }
     public function indexWithCategory(Category $category){
-        $posts = Post::where('category_id',$category->id)->get();
+        $posts = Post::where('category_id',$category->id)->orderBy('created_at','desc')->get();
         $categories = Category::all();
         $tags = Tag::has('posts')->withCount('posts')->orderBy('posts_count','desc')->get();
         return view('frontend.index',compact('posts','categories','tags','category'));
